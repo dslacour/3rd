@@ -1,0 +1,456 @@
+body {
+  background: rgb(0, 0, 0);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: relative;
+}
+
+ul,
+h1,
+h2,
+h3,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+li::marker {
+  display: none;
+}
+
+
+.main {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+  overflow: hidden;
+}
+
+/* Här har jag röjt! */
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 250px;
+  overflow: hidden;
+  max-width: 50%;
+}
+
+.people {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-align: right;
+  left: -10px;
+  position: relative;
+  
+}
+
+
+.about {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-align: left;
+  right: -10px;
+  position: absolute;
+  
+}
+
+/* Och hit!  */
+
+/* Det här var något lagg som jag inte kunde lösa...
+
+.centered {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 35px;
+
+
+} */
+
+@media (max-width: 768px) {
+
+    p, h1{
+      margin-right:0.75rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    align-items: flex-end;
+    flex-direction: row;
+    justify-content: right;
+  }
+}
+
+/* Här ändrar vi om vi vill eller inte vill se scrollbar */
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Här är det jävligt klurigt, eftersom med overflow:hidden så försvinner scrollbaren i videosarna, på bekostnad av att de inte croppas ordentligt av
+  overflow-x:hidden. Det är knepigt */
+
+.section {
+  height: 100%;
+  overflow-x: hidden;
+  overflow: hidden;
+  margin: 0;
+  padding: none;
+  z-index: 1;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: right;
+  
+}
+
+/* Padding right här! */
+
+.left.section {
+  padding-bottom: 20px;
+  padding-right: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    width: 50%;
+  }
+}
+
+video {
+  cursor: pointer;
+
+  /* Olike resize-rutor för olika klipp, för mer kontrollstyrning. */
+}
+
+.resize {
+  object-fit: cover;
+  transform: scale(150%);
+  overflow: hidden;
+  width: 100%;
+}
+
+.resize2 {
+  object-fit: cover;
+  transform: scale(120%);
+  overflow: hidden;
+  width: 100%;
+}
+
+.resize3 {
+  object-fit: cover;
+  transform: scale(108%);
+  overflow: hidden;
+  width: 100%;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: white;
+  line-height: normal;
+  letter-spacing: 0px;
+  text-shadow: -8px 8px 20px rgba(255, 255, 255, 0);
+  text-align: right;
+  padding-bottom: 0px;
+}
+
+img {
+  background: rgba(255, 255, 255, 0);
+  height: 100px;
+  position: relative;
+  width: 100px;
+}
+
+@media screen and (min-width: 768px) {
+header {
+    display: flex;
+    flex-direction: column;
+    left: 1rem;
+    top: 1rem;
+    position: fixed;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    z-index: 9;
+
+  }
+            header h2 {
+              font-size: 18px;
+            }
+      
+            header a {
+              font-size: 18px;
+            }
+}
+
+
+@media (max-width: 767px) {
+  header {
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    
+    z-index: 9;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1;
+    grid-template-areas: "h2 a";
+    background: rgb(19, 19, 19);
+  }
+
+
+  .alignment {
+    display: flex;
+      justify-content: space-between;
+  }
+
+    header h2 {
+      grid-area: h2;
+      justify-self: start;
+      padding-left: 0.75rem;
+      padding-bottom: 0.5rem;
+      padding-top:0.5rem;
+      font-size: 16px;
+    }
+  
+    header a {
+      grid-area: a;
+      justify-self: end;
+      padding-right: 0.75rem;
+      padding-bottom: 0.5rem;
+      padding-top:0.5rem;
+      font-size: 18px;
+    }
+
+    /* Hvis du slår det her til så ændres aspect ratio på mobile. */
+      .trigger-modal, .feature-video{
+      aspect-ratio: 3/1!important;
+      width: 100% !important;
+      height: 100% !important;
+    }  
+
+    /* Hvis du slår det her fra så undgår du gaps på mobile */
+        /* .list-item:first-of-type {
+          margin-top: 6rem;
+        }
+    
+        .list-item {
+          padding-bottom:6rem;
+        }
+        
+        */
+
+
+}
+
+header * {
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+}
+
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  text-align: right;
+  color: white;
+  font-weight: normal;
+  margin-top: -2px;
+  margin-bottom: -2px;
+
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  column-count: 2;
+  column-rule-color: white;
+  column-rule-width: 1px;
+  letter-spacing: 0px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0);
+  padding: 0;
+  margin: 0;
+
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+  
+}
+
+div {
+  line-height: normal;
+  overflow: hidden;
+  color: white;
+  
+}
+
+a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  color: white;
+  text-decoration: none;
+}
+
+ul:hover li {
+  opacity: 0.5;
+  filter: blur(1px);
+  transition: ease 0.5s;
+}
+
+ul li:hover {
+  opacity: 1;
+  filter: blur(0px);
+}
+
+ul section:left:hover {
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+}
+
+.fade-in {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-filter: blur(0px);
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* oscars css */
+
+.list-item:first-of-type {
+  margin-top: none;
+}
+
+.list-item {
+  margin: 0;
+}
+
+.container {
+  position: relative;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 1);
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+}
+
+.modal-content {
+  height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    transform: translate(-50%, -50%);
+}
+
+
+.modal-closer {
+  color: #fff;
+  cursor: pointer;
+  font-size: 3rem;
+  top: 1rem;
+  right: 2rem;
+  position: absolute;
+  z-index: 99;
+  line-height: 0.5;
+}
+
+.modal-video {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.trigger-modal {
+  display: flex;
+  width: 100%;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.feature-video {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
