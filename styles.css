@@ -50,7 +50,8 @@ li::marker {
   text-align: right;
   left: -10px;
   position: relative;
-  
+  z-index: 99;
+
 }
 
 
@@ -60,7 +61,7 @@ li::marker {
   text-align: left;
   right: -10px;
   position: absolute;
-  
+
 }
 
 /* Och hit!  */
@@ -79,9 +80,10 @@ li::marker {
 
 @media (max-width: 768px) {
 
-    p, h1{
-      margin-right:0.75rem;
-    }
+  p,
+  h1 {
+    margin-right: 0.75rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -101,24 +103,45 @@ body::-webkit-scrollbar {
 /* Här är det jävligt klurigt, eftersom med overflow:hidden så försvinner scrollbaren i videosarna, på bekostnad av att de inte croppas ordentligt av
   overflow-x:hidden. Det är knepigt */
 
+
+/* This is the main container for the two sections */
 .section {
-  height: 100%;
-  overflow-x: hidden;
-  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: none!important;
   margin: 0;
   padding: none;
-  z-index: 1;
-  display: flex;
-  gap: 0.5rem;
   justify-content: right;
+}
+
+/* This is the left section */
+.left {
+  width: 100%;
+  z-index:2;
+  
+
+}
+@media screen and (max-width: 767px) {
+  .left{
+    margin-top: -60px;
+      margin-bottom: 0.5rem;
+  }
+  
+}
+/* This is the right section */
+.right {
+  width: 100%;
+  z-index:1;
   
 }
 
-/* Padding right här! */
+@media screen and (min-width: 768px) {
 
-.left.section {
-  padding-bottom: 20px;
-  padding-right: 0px;
+  /* On larger screens, make the left section 50% of the width */
+  .left {
+    width: 50%;
+    margin-right:1.5rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -131,20 +154,6 @@ video {
   cursor: pointer;
 
   /* Olike resize-rutor för olika klipp, för mer kontrollstyrning. */
-}
-
-.resize {
-  object-fit: cover;
-  transform: scale(150%);
-  overflow: hidden;
-  width: 100%;
-}
-
-.resize2 {
-  object-fit: cover;
-  transform: scale(120%);
-  overflow: hidden;
-  width: 100%;
 }
 
 .resize3 {
@@ -173,7 +182,7 @@ img {
 }
 
 @media screen and (min-width: 768px) {
-header {
+  header {
     display: flex;
     flex-direction: column;
     left: 1rem;
@@ -184,13 +193,16 @@ header {
     z-index: 9;
 
   }
-            header h2 {
-              font-size: 18px;
-            }
-      
-            header a {
-              font-size: 18px;
-            }
+
+  header h2 {
+    font-size: 18px;
+    height: 21px;
+  }
+
+  header a {
+    font-size: 18px;
+    height: 21px;
+  }
 }
 
 
@@ -200,7 +212,7 @@ header {
     bottom: 0;
     overflow: hidden;
     width: 100%;
-    
+
     z-index: 9;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -212,36 +224,37 @@ header {
 
   .alignment {
     display: flex;
-      justify-content: space-between;
+    justify-content: space-between;
   }
 
-    header h2 {
-      grid-area: h2;
-      justify-self: start;
-      padding-left: 0.75rem;
-      padding-bottom: 0.5rem;
-      padding-top:0.5rem;
-      font-size: 16px;
-    }
-  
-    header a {
-      grid-area: a;
-      justify-self: end;
-      padding-right: 0.75rem;
-      padding-bottom: 0.5rem;
-      padding-top:0.5rem;
-      font-size: 18px;
-    }
+  header h2 {
+    grid-area: h2;
+    justify-self: start;
+    padding-left: 0.75rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    font-size: 16px;
+  }
 
-    /* Hvis du slår det her til så ændres aspect ratio på mobile. */
-      .trigger-modal, .feature-video{
-      aspect-ratio: 3/1!important;
-      width: 100% !important;
-      height: 100% !important;
-    }  
+  header a {
+    grid-area: a;
+    justify-self: end;
+    padding-right: 0.75rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    font-size: 18px;
+  }
 
-    /* Hvis du slår det her fra så undgår du gaps på mobile */
-        /* .list-item:first-of-type {
+  /* Hvis du slår det her til så ændres aspect ratio på mobile. */
+  .trigger-modal,
+  .feature-video {
+    aspect-ratio: 3/1 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Hvis du slår det her fra så undgår du gaps på mobile */
+  /* .list-item:first-of-type {
           margin-top: 6rem;
         }
     
@@ -267,8 +280,7 @@ h1 {
   text-align: right;
   color: white;
   font-weight: normal;
-  margin-top: -2px;
-  margin-bottom: -2px;
+  
 
 }
 
@@ -295,14 +307,14 @@ h2 {
   h2 {
     font-size: 14px;
   }
-  
+
 }
 
 div {
   line-height: normal;
   overflow: hidden;
   color: white;
-  
+
 }
 
 a {
@@ -313,6 +325,7 @@ a {
   text-decoration: none;
 }
 
+/* 
 ul:hover li {
   opacity: 0.5;
   filter: blur(1px);
@@ -327,7 +340,7 @@ ul li:hover {
 ul section:left:hover {
   opacity: 1 !important;
   filter: blur(0px) !important;
-}
+} */
 
 .fade-in {
   animation: fadeIn ease 1s;
@@ -343,6 +356,7 @@ ul section:left:hover {
     opacity: 0;
     -webkit-filter: blur(5px);
   }
+
   100% {
     opacity: 1;
     -webkit-filter: blur(0px);
@@ -353,6 +367,7 @@ ul section:left:hover {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -362,6 +377,7 @@ ul section:left:hover {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -371,6 +387,7 @@ ul section:left:hover {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -380,6 +397,7 @@ ul section:left:hover {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -393,6 +411,23 @@ ul section:left:hover {
 
 .list-item {
   margin: 0;
+  padding: 0;
+  
+}
+
+.list-item {
+  opacity: 0.5;
+  filter: blur(1px);
+  transition: ease 0.5s;
+}
+
+.list-item:last-of-type {
+  margin-bottom: 15rem;
+}
+
+.sharp {
+  opacity: 1;
+  filter: blur(0px);
 }
 
 .container {
@@ -404,17 +439,17 @@ ul section:left:hover {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 10;
+  z-index: 1;
 }
 
 .modal-content {
   height: 100%;
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    max-width: 100%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  transform: translate(-50%, -50%);
 }
 
 
@@ -453,4 +488,42 @@ ul section:left:hover {
   object-fit: cover;
   position: absolute;
   inset: 0;
+}
+
+/* Add styles for the modal */
+.fullscreen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Add styles for the iframe */
+.fullscreen-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Add styles for the close button */
+.fullscreen-modal .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Add hover styles for the close button */
+.fullscreen-modal .close:hover {
+  color: #ccc;
 }
