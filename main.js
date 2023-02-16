@@ -27,6 +27,16 @@
   });
 })();
 
+const contactLink = document.querySelector('#contact-link');
+const contactDiv = document.querySelector('#contact');
+
+document.addEventListener('click', (event) => {
+  if (event.target.closest('#contact') || event.target.closest('#contact-link')) {
+    contactDiv.classList.toggle('hidden');
+  } else {
+    contactDiv.classList.add('hidden');
+  }
+});
 
 // Get the trigger-modal element
 const triggerModal = document.querySelector('.trigger-modal');

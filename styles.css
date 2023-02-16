@@ -35,7 +35,7 @@ li::marker {
 .split {
   height: 100%;
   width: 50%;
-  position: fixed;
+  position: relative;
   z-index: 1;
   top: 0;
   overflow-x: hidden;
@@ -43,12 +43,19 @@ li::marker {
   overflow: hidden;
   max-width: 50%;
 }
+@media screen and (max-width: 767px) {
+  .split {
+
+    padding-top: 200px;
+  }
+}
+  
 
 .people {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   text-align: right;
-  left: -10px;
+  left: -25px;
   position: relative;
   z-index: 99;
 
@@ -59,11 +66,22 @@ li::marker {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   text-align: left;
-  right: -10px;
+  right: -0px;
   position: absolute;
 
 }
 
+.abouttext{
+  max-width:500px;
+  text-align: left;
+  padding-right: 0.5rem;
+
+}
+.infotext{
+  
+  text-align: right;
+  padding-left: 0.5rem;
+}
 /* Och hit!  */
 
 /* Det här var något lagg som jag inte kunde lösa...
@@ -123,10 +141,12 @@ body::-webkit-scrollbar {
 }
 @media screen and (max-width: 767px) {
   .left{
-    margin-top: -60px;
-      margin-bottom: 0.5rem;
+    margin-top: -5rem;
+
   }
-  
+    .videoinfo{
+      margin-bottom:0.5rem;
+    }
 }
 /* This is the right section */
 .right {
@@ -135,12 +155,29 @@ body::-webkit-scrollbar {
   
 }
 
+.hidden {
+  display: none;
+}
+
+#contact{
+  margin-bottom:30rem;
+}
+@media screen and (max-width: 767px) {
+  #contact{
+    margin-bottom:60rem;
+  }
+}
+
+#contact .about{
+
+}
 @media screen and (min-width: 768px) {
 
   /* On larger screens, make the left section 50% of the width */
   .left {
     width: 50%;
-    margin-right:1.5rem;
+    margin-right:1.7rem;
+    padding-bottom:0.5rem;
   }
 }
 
@@ -190,7 +227,7 @@ img {
     position: fixed;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-    z-index: 9;
+    z-index: 999;
 
   }
 
