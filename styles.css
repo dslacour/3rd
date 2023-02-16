@@ -206,7 +206,7 @@ header {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1;
     grid-template-areas: "h2 a";
-    background: rgb(19, 19, 19);
+    background: black;
   }
 
 
