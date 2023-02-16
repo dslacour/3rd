@@ -461,6 +461,11 @@ ul section:left:hover {
 .list-item:last-of-type {
   margin-bottom: 15rem;
 }
+@media  screen and (max-width: 767px) {
+  .list-item:last-of-type{
+    margin-bottom:3rem;
+  }
+}
 
 .sharp {
   opacity: 1;
