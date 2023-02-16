@@ -463,7 +463,7 @@ ul section:left:hover {
 }
 @media  screen and (max-width: 767px) {
   .list-item:last-of-type{
-    margin-bottom:3rem;
+    margin-bottom:3.5rem;
   }
 }
 
